@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="stylesheet" href="./static/css/styles.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+  
+            <!-- 浅灰色框架 -->
+            <div class="content-box">
+  
+              <h2 class="title is-3 publication-title">
+                SketchMaster: From Rough Lines to Photorealistic Scenes with Adaptive Guidance
+              </h2>
+  
+  
+              <section class="hero teaser">
+                <div class="container is-max-desktop">
+                  <div class="hero-body">
+                    <img src="./static/images/teaser_w_1.png"
+                         alt="Hero Teaser Image"
+                         class="teaser-image"
+                         height="100%">
+                    <p style="margin-bottom: 5px;">
+                      Overview of our proposed framework for abstract sketch-to-image generation. 
+                      Given an input abstract scene sketch, we extract equivalent textual embeddings 
+                      as well as region-specific bounding boxes and labels, then fuse them via adaptive cross-attention to guide the diffusion model. 
+                      This results in a realistic scene image that aligns with the input sketch.
+                    </p>
+                  </div>
+                </div>
+              </section>
+  
+            </div> <!-- 结束 content-box -->
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Abstract. -->
+<div class="container is-max-desktop">  
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-quarters">  
+      
+      <!-- 浅灰色框架 -->
+      <div class="content-box">
+      
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Scene sketch-to-image generation demands tight alignment between an abstract sketch and its generated image in terms of semantics, layout, shape, and details. However, existing diffusion-based approaches often fail to capture the nuanced information conveyed by complex sketches, resulting in low-quality or unrealistic outputs. In this paper, we present a novel framework that achieves robust cross-modal understanding and adaptive sketch guidance from a single abstract scene sketch. Specifically, we introduce an Abstract Sketch Semantic Translator to convert sketch features into fine-grained textual embeddings, enabling precise semantic conditioning for the diffusion model. We also incorporate layout-aware detection to extract bounding boxes and labels from the sketch, fusing them with local object features via cross-attention. By combining these refined textual embeddings and layout-guided features within the denoising process, our method generates realistic scene images closely aligned with the original sketches. Extensive experiments demonstrate that our framework excels at interpreting abstract sketches and producing high-fidelity results with accurate semantic and spatial consistency.
+          </p>
+        </div>
+
+      </div> <!-- 结束 content-box -->
+      
+    </div>
+  </div>
+</div>
+<!--/ Abstract. -->
+
+
+  <!-- Methods. -->
+  <div class="container is-max-desktop">  
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-quarters">
+        
+        
+        <div class="content-box"> 
+
+          <h2 class="title is-3">Methods</h2>
+          <img src="./static/images/framework.png"
+              alt="Overview Image"
+              height="100%">
+          <div class="content has-text-justified">
+            <p>
+              Overall pipeline of our proposed framework. 
+              Given an abstract scene sketch, the Abstract Sketch Semantic Translator (top) progressively converts raw sketch features into equivalent fine-grained textual embeddings \( \boldsymbol{h^{c}} \) for diffusion-based generation. 
+              Meanwhile, a Sketch Detector (bottom) identifies object bounding boxes and labels, extracting layout and local detail features, which are fused via cross-attention to produce \( \boldsymbol{h^{c}} \). 
+              During generation, \( \boldsymbol{h^{c}} \) provides global semantic guidance, while \( \boldsymbol{h^{g}} \) offers object-level control—yielding coherent, realistic scene images aligned with the sketch.
+            </p>
+          </div>
+
+        </div> 
+
+      </div>
+    </div>
+  </div>
+  <!--/ Methods. -->
+    
+
+
+  <div class="container is-max-desktop">  
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-quarters">
+  
+      <!-- 浅灰色框架 -->
+      <div class="content-box">  <!-- ✅ 添加 content-box 让它有浅灰色背景 -->
+  
+        <h2 class="title is-3">Comparison of Scene Layout Consistency</h2>
+        <img src="./static/images/comparsion.png"
+             alt="Design Draft Generation"
+             height="100%">
+        <p style="text-align: left;">
+          Qualitative results and comparison with other SOTA Methods.
+          Our proposed method is capable of generating high-quality, realistic scene images that align with the semantics and layouts of the scene sketches. 
+          The annotated bounding boxes demonstrate the perfect correspondence between our results and sketches.
+        </p>
+  
+        <div style="margin-bottom: 50px;"></div>
+
+        <h2 class="title is-3">Comparison of Photorealism and Coherence</h2>
+        <img src="./static/images/comparsion_1.png"
+             alt="Iterative Local Editing"
+             height="100%">
+        <div class="content has-text-justified">
+          <p>
+            Qualitative comparison with Scene Image Synthesis and Scene Image Generation. 
+            Our method produces noticeably more realistic, unified scenes, integrating objects seamlessly with the environment and avoiding the segmented appearance observed in other methods.
+          </p>
+        </div>
+  
+      </div> <!-- 结束 content-box -->
+  
+    </div>
+  </div>
+
+
+    <!-- More Results. -->
+  <div class="container is-max-desktop">  
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-quarters">
+        
+        
+        <div class="content-box"> 
+
+          <h2 class="title is-3">More Results</h2>
+          <img src="./static/images/more_results.png"
+              alt="Overview Image"
+              height="100%">
+          <div class="content has-text-justified">
+            <p>
+              More results generated by our proposed method in the FS-COCO dataset.
+            </p>
+          </div>
+
+        </div> 
+
+      </div>
+    </div>
+  </div>
+    <!--/ More Results. -->

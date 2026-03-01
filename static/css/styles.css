@@ -1,0 +1,17 @@
+/* 复用的浅灰色边框样式 */
+.content-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #d3d3d3; /* 浅灰色边框 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+/* 调整标题大小 */
+.publication-title {
+    font-size: 1.8rem; /* 调整字体大小 */
+    font-weight: bold;
+}
